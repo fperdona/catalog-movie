@@ -4,6 +4,8 @@ import ReactPlayer from "react-player";
 import { getMovieDetails, getMovieVideos, IMAGE_BASE_URL } from "../../services/api";
 import styles from "./MovieDetails.module.css";
 import { Button } from "../../components/Button/Button";
+import { Skeleton } from "../../components/Skeleton/Skeleton";
+
 
 export function MovieDetails() {
     const { id } = useParams();
@@ -25,7 +27,21 @@ export function MovieDetails() {
         (v) => v.type === "Trailer" && v.site === "YouTube"
     );
 
-    if (isLoading) return <p className={styles.message}>Carregando...</p>;
+    if (isLoading) return (
+        <div className={styles.container}>
+            <Skeleton width="80px" height="40px" borderRadius="4px" />
+            <div className={styles.content} style={{ marginTop: "24px" }}>
+                <Skeleton width="300px" height="450px" borderRadius="8px" />
+                <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "12px" }}>
+                    <Skeleton height="36px" width="60%" />
+                    <Skeleton height="20px" width="40%" />
+                    <Skeleton height="20px" width="30%" />
+                    <Skeleton height="100px" width="100%" />
+                </div>
+            </div>
+        </div>
+    );
+
     if (isError || !movie) return <p className={styles.message}>Erro ao carregar filme.</p>;
 
     // Converte duração de minutos para formato horas/minutos

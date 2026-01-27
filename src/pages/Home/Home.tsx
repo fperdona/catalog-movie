@@ -5,6 +5,7 @@ import { getPopularMovies, searchMovies } from "../../services/api";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
 import { SearchBar } from "../../components/SearchBar/SearchBar";
 import { Button } from "../../components/Button/Button";
+import { Skeleton } from "../../components/Skeleton/Skeleton";
 import styles from "./Home.module.css";
 
 export function Home() {
@@ -35,7 +36,18 @@ export function Home() {
             </h1>
             <SearchBar onSearch={handleSearch} />
 
-            {isLoading && <p className={styles.message}>Carregando...</p>}
+            {isLoading && (
+                <div className={styles.grid}>
+                    {Array.from({ length: 20 }).map((_, i) => (
+                        <div key={i} style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                            <Skeleton height="300px" borderRadius="8px" />
+                            <Skeleton height="20px" width="80%" />
+                            <Skeleton height="16px" width="40%" />
+                        </div>
+                    ))}
+                </div>
+            )}
+
             {isError && <p className={styles.message}>Erro ao carregar filmes.</p>}
 
             <div className={styles.grid}>
