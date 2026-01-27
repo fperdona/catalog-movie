@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styles from "./SearchBar.module.css";
 import { Button } from "../Button/Button";
+import { Icon } from "../Icon/Icon";
+import Search from "../../assets/icons/search.svg?react";
 
 interface SearchBarProps {
     onSearch: (query: string) => void;
@@ -23,7 +25,9 @@ export function SearchBar({ onSearch }: SearchBarProps) {
                 onChange={(e) => setQuery(e.target.value)}
                 className={styles.input}
             />
-            <Button type="submit">Buscar</Button>
+            <Button type="submit" className={styles.teste}>
+                <Icon svg={Search} width={28} height={28} />
+            </Button>
         </form>
     );
 }

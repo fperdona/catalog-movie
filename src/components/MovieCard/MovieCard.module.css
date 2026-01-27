@@ -5,6 +5,7 @@
     transition: transform 0.2s;
     display: flex;
     flex-direction: column;
+    position: relative;
   }
   
   .card:hover {
@@ -40,3 +41,25 @@
     color: var(--accent);
   }
   
+  .favButton {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    fill: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.favActive {
+    fill: #e74c3c;
+}
+

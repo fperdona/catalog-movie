@@ -1,30 +1,27 @@
 .header {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    gap: 12px;
     padding: 16px 32px;
     background-color: var(--bg-card);
-    position: relative;
 }
 
 .logo {
-    font-size: 1.25rem;
-    color: var(--accent);
+    fill: var(--text-primary);
 }
-
-.header button {
-    position: absolute;
-    right: 32px;
+.link {
+    fill: var(--text-primary);
+}
+.theme{
+    fill: var(--text-primary);
+    cursor:pointer;
 }
 
 @media (max-width: 767px) {
     .header {
-        flex-direction: column;
+        display: flex;
         gap: 12px;
         padding: 16px;
-    }
-
-    .header button {
-        position: static;
     }
 }

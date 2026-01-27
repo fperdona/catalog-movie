@@ -7,6 +7,9 @@ import { SearchBar } from "../../components/SearchBar/SearchBar";
 import { Button } from "../../components/Button/Button";
 import { Skeleton } from "../../components/Skeleton/Skeleton";
 import styles from "./Home.module.css";
+import { Icon } from "../../components/Icon/Icon";
+import ArrowLeft from "../../assets/icons/arrow-left.svg?react";
+import ArrowRight from "../../assets/icons/arrow-right.svg?react";
 
 export function Home() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -62,15 +65,16 @@ export function Home() {
                         disabled={page === 1}
                         onClick={() => handlePageChange(page - 1)}
                     >
-                        ← Anterior
+                        <Icon svg={ArrowLeft} width={28} height={28} />
                     </Button>
                     <span>Página {page} de {data.total_pages}</span>
                     <Button
                         disabled={page >= data.total_pages}
                         onClick={() => handlePageChange(page + 1)}
                     >
-                        Próxima →
+                        <Icon svg={ArrowRight} width={28} height={28} />
                     </Button>
+
                 </div>
             )}
         </div>

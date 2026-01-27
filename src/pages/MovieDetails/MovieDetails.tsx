@@ -5,7 +5,8 @@ import { getMovieDetails, getMovieVideos, IMAGE_BASE_URL } from "../../services/
 import styles from "./MovieDetails.module.css";
 import { Button } from "../../components/Button/Button";
 import { Skeleton } from "../../components/Skeleton/Skeleton";
-
+import { Icon } from "../../components/Icon/Icon";
+import ArrowLeft from "../../assets/icons/arrow-left.svg?react";
 
 export function MovieDetails() {
     const { id } = useParams();
@@ -52,7 +53,9 @@ export function MovieDetails() {
 
     return (
         <div className={styles.container}>
-            <Button variant="secondary" onClick={() => navigate(-1)} className={styles.back}>← Voltar</Button>
+            <Button variant="primary" onClick={() => navigate(-1)} className={styles.back}>
+                <Icon svg={ArrowLeft} width={28} height={28} />
+            </Button>
 
 
             <div className={styles.content}>
