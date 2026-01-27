@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./SearchBar.module.css";
+import { Button } from "../Button/Button";
 
 interface SearchBarProps {
     onSearch: (query: string) => void;
@@ -22,7 +23,7 @@ export function SearchBar({ onSearch }: SearchBarProps) {
                 onChange={(e) => setQuery(e.target.value)}
                 className={styles.input}
             />
-            <button type="submit" className={styles.button}>Buscar</button>
+            <Button type="submit">Buscar</Button>
         </form>
     );
 }
