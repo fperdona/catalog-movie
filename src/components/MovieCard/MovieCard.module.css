@@ -1,0 +1,42 @@
+.card {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card:hover {
+    transform: scale(1.03);
+  }
+  
+  .poster {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+  }
+  
+  .info {
+    padding: 12px;
+  }
+  
+  .title {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: #aaa;
+  }
+  
+  .rating {
+    color: #f5c518;
+  }
+  
