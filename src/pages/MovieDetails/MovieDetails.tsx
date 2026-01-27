@@ -1,12 +1,13 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import ReactPlayer from "react-player";
 import { getMovieDetails, getMovieVideos, IMAGE_BASE_URL } from "../../services/api";
 import styles from "./MovieDetails.module.css";
-
+import { Button } from "../../components/Button/Button";
 
 export function MovieDetails() {
     const { id } = useParams();
+    const navigate = useNavigate();
     const movieId = Number(id);
 
     const { data: movie, isLoading, isError } = useQuery({
@@ -32,9 +33,11 @@ export function MovieDetails() {
     const hours = Math.floor(movie.runtime / 60);
     const minutes = movie.runtime % 60;
 
+
     return (
         <div className={styles.container}>
-            <Link to="/" className={styles.back}>← Voltar</Link>
+            <Button variant="secondary" onClick={() => navigate(-1)} className={styles.back}>← Voltar</Button>
+
 
             <div className={styles.content}>
                 <img
