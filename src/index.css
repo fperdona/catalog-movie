@@ -1,3 +1,27 @@
+:root {
+  --bg-primary: #121212;
+  --bg-card: #1e1e1e;
+  --bg-input: #2a2a2a;
+  --bg-input-hover: #3a3a3a;
+  --text-primary: #ffffff;
+  --text-secondary: #aaa;
+  --text-muted: #ccc;
+  --accent: #f5c518;
+  --accent-hover: #d4a910;
+}
+
+[data-theme="light"] {
+  --bg-primary: #eef1f6;
+  --bg-card: #ffffff;
+  --bg-input: #dde2ea;
+  --bg-input-hover: #cdd3dc;
+  --text-primary: #1a1a2e;
+  --text-secondary: #555b6e;
+  --text-muted: #6b7280;
+  --accent: #e6a817;
+  --accent-hover: #cc9412;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +30,9 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #121212;
-  color: #ffffff;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 a {

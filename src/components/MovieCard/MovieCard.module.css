@@ -1,5 +1,5 @@
 .card {
-    background-color: #1e1e1e;
+    background-color: var(--bg-card);
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.2s;
@@ -33,10 +33,10 @@
     display: flex;
     justify-content: space-between;
     font-size: 0.875rem;
-    color: #aaa;
+    color: var(--text-secondary);
   }
   
   .rating {
-    color: #f5c518;
+    color: var(--accent);
   }
   

@@ -1,5 +1,5 @@
 .skeleton {
-    background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
+    background: linear-gradient(90deg, var(--bg-input) 25%, var(--bg-input-hover) 50%, var(--bg-input) 75%);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
 }

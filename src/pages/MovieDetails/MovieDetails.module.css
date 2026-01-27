@@ -28,7 +28,7 @@
 .meta {
   display: flex;
   gap: 16px;
-  color: #aaa;
+  color: var(--text-secondary);
   margin-bottom: 16px;
   font-size: 1rem;
 }
@@ -41,21 +41,21 @@
 }
 
 .genre {
-  background-color: #2a2a2a;
+  background-color: var(--bg-input);
   padding: 4px 12px;
   border-radius: 16px;
   font-size: 0.875rem;
-  color: #ccc;
+  color: var(--text-muted);
 }
 
 .overview {
-  color: #ccc;
+  color: var(--text-muted);
   line-height: 1.6;
 }
 
 .message {
   text-align: center;
-  color: #aaa;
+  color: var(--text-secondary);
   padding: 64px 16px;
   font-size: 1.1rem;
 }
