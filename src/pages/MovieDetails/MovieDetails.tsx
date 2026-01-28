@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import ReactPlayer from "react-player";
-import { getMovieDetails, getMovieVideos, IMAGE_BASE_URL } from "../../services/api";
+import { getMovieDetails, IMAGE_BASE_URL } from "../../services/api";
 import styles from "./MovieDetails.module.css";
 import { Button } from "../../components/Button/Button";
 import { Skeleton } from "../../components/Skeleton/Skeleton";
@@ -17,16 +17,6 @@ export function MovieDetails() {
         queryKey: ["movie", movieId],
         queryFn: () => getMovieDetails(movieId),
     });
-
-    const { data: videos } = useQuery({
-        queryKey: ["movieVideos", movieId],
-        queryFn: () => getMovieVideos(movieId),
-    });
-
-    // Busca o primeiro trailer disponível no YouTube
-    const trailer = videos?.results.find(
-        (v) => v.type === "Trailer" && v.site === "YouTube"
-    );
 
     if (isLoading) return (
         <div className={styles.container}>
@@ -89,21 +79,18 @@ export function MovieDetails() {
                 </div>
             </div>
 
-            {trailer && (
-                <div className={styles.trailerSection}>
-                    <h2>Trailer</h2>
-                    <div className={styles.playerWrapper}>
-                        <ReactPlayer
-                            src={`https://www.youtube.com/watch?v=${trailer.key}`}
-                            controls
-                            width="100%"
-                            height="100%"
-                            className={styles.player}
-                        />
-
-                    </div>
+            <div className={styles.trailerSection}>
+                <h2>Trailer</h2>
+                <div className={styles.playerWrapper}>
+                    <ReactPlayer
+                        src="/hls/trailer.m3u8"
+                        controls
+                        width="100%"
+                        height="100%"
+                        className={styles.player}
+                    />
                 </div>
-            )}
+            </div>
         </div>
     );
 }
