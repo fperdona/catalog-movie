@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getPopularMovies, searchMovies } from "../../services/api";
@@ -13,8 +12,8 @@ import ArrowRight from "../../assets/icons/arrow-right.svg?react";
 
 export function Home() {
     const [searchParams, setSearchParams] = useSearchParams();
-    const [search, setSearch] = useState("");
 
+    const search = searchParams.get("search") || "";
     const page = Number(searchParams.get("page")) || 1;
 
     const { data, isLoading, isError } = useQuery({
@@ -24,12 +23,13 @@ export function Home() {
     });
 
     function handleSearch(query: string) {
-        setSearch(query);
-        setSearchParams({ page: "1" });
+        setSearchParams(query ? { search: query, page: "1" } : { page: "1" });
     }
 
     function handlePageChange(newPage: number) {
-        setSearchParams({ page: String(newPage) });
+        const params: Record<string, string> = { page: String(newPage) };
+        if (search) params.search = search;
+        setSearchParams(params);
     }
 
     return (
@@ -37,7 +37,7 @@ export function Home() {
             <h1 className={styles.heading}>
                 {search ? `Resultados para "${search}"` : "Filmes Populares"}
             </h1>
-            <SearchBar onSearch={handleSearch} />
+            <SearchBar onSearch={handleSearch} initialValue={search} />
 
             {isLoading && (
                 <div className={styles.grid}>

@@ -6,10 +6,11 @@ import Search from "../../assets/icons/search.svg?react";
 
 interface SearchBarProps {
     onSearch: (query: string) => void;
+    initialValue?: string;
 }
 
-export function SearchBar({ onSearch }: SearchBarProps) {
-    const [query, setQuery] = useState("");
+export function SearchBar({ onSearch, initialValue = "" }: SearchBarProps) {
+    const [query, setQuery] = useState(initialValue);
 
     function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
