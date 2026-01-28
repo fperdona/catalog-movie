@@ -1,15 +1,16 @@
 .card {
     background-color: var(--bg-card);
-    border-radius: 8px;
+    border-radius: 4px;
     overflow: hidden;
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     flex-direction: column;
     position: relative;
   }
   
   .card:hover {
-    transform: scale(1.03);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   }
   
   .poster {
