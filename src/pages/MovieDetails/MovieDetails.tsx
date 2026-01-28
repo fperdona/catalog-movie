@@ -83,7 +83,8 @@ export function MovieDetails() {
                 <h2>Trailer</h2>
                 <div className={styles.playerWrapper}>
                     <ReactPlayer
-                        src="/hls/trailer.m3u8"
+                        key={movieId}
+                        src={`/hls/sample${(movieId % 3) + 1}/index.m3u8`}
                         controls
                         width="100%"
                         height="100%"
