@@ -37,7 +37,7 @@ describe("MovieCard", () => {
 
     it("exibe a nota formatada com uma casa decimal", () => {
         renderCard();
-        expect(screen.getByText("⭐ 8.7")).toBeInTheDocument();
+        expect(screen.getByText("8.7")).toBeInTheDocument();
     });
 
     it("renderiza a imagem do poster com alt correto", () => {

@@ -8,6 +8,7 @@ import { Skeleton } from "../../components/Skeleton/Skeleton";
 import { Icon } from "../../components/Icon/Icon";
 import ArrowLeft from "../../assets/icons/arrow-left.svg?react";
 import Star from "../../assets/icons/star.svg?react";
+import noPoster from "../../assets/no-poster.svg";
 
 export function MovieDetails() {
     const { id } = useParams();
@@ -54,7 +55,8 @@ export function MovieDetails() {
                     src={
                         movie.poster_path
                             ? `${IMAGE_BASE_URL}${movie.poster_path}`
-                            : undefined
+                            : noPoster
+
                     }
                     alt={movie.title}
                     className={styles.poster}
