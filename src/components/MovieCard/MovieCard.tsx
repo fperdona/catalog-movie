@@ -8,6 +8,7 @@ import styles from "./MovieCard.module.css";
 import noPoster from "../../assets/no-poster.svg";
 import Heart from "../../assets/icons/heart.svg?react";
 import HeartFilled from "../../assets/icons/heart-filled.svg?react";
+import Star from "../../assets/icons/star.svg?react";
 
 interface MovieCardProps {
     movie: Movie;
@@ -43,7 +44,10 @@ export const MovieCard = memo(function MovieCard({ movie }: MovieCardProps) {
             <div className={styles.info}>
                 <h3 className={styles.title}>{movie.title}</h3>
                 <div className={styles.details}>
-                    <span className={styles.rating}>⭐ {movie.vote_average.toFixed(1)}</span>
+                    <span className={styles.rating}>
+                        <Icon svg={Star} width={16} height={16} />
+                        {movie.vote_average.toFixed(1)}
+                    </span>
                     <span className={styles.year}>{year}</span>
                 </div>
             </div>

@@ -40,6 +40,13 @@
   
   .rating {
     color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .rating svg {
+    fill: var(--accent);
   }
   
   .favButton {

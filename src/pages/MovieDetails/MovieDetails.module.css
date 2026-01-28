@@ -31,6 +31,18 @@
   color: var(--text-secondary);
   margin-bottom: 16px;
   font-size: 1rem;
+  align-items: center;
+}
+
+.meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.meta span svg {
+  color: var(--accent);
+  fill: var(--accent);
 }
 
 .genres {

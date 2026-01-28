@@ -7,6 +7,7 @@ import { Button } from "../../components/Button/Button";
 import { Skeleton } from "../../components/Skeleton/Skeleton";
 import { Icon } from "../../components/Icon/Icon";
 import ArrowLeft from "../../assets/icons/arrow-left.svg?react";
+import Star from "../../assets/icons/star.svg?react";
 
 export function MovieDetails() {
     const { id } = useParams();
@@ -63,7 +64,7 @@ export function MovieDetails() {
                     <h1 className={styles.title}>{movie.title}</h1>
 
                     <div className={styles.meta}>
-                        <span>⭐ {movie.vote_average.toFixed(1)}</span>
+                        <span><Icon svg={Star} width={20} height={20} />{movie.vote_average.toFixed(1)}</span>
                         <span>{year}</span>
                         <span>{hours}h {minutes}min</span>
                     </div>
