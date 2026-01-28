@@ -12,13 +12,23 @@ const FavoritesContext = createContext<FavoritesContextType>({} as FavoritesCont
 
 export function FavoritesProvider({ children }: { children: ReactNode }) {
     const [favorites, setFavorites] = useState<Movie[]>(() => {
-        const saved = localStorage.getItem("favorites");
-        return saved ? JSON.parse(saved) : [];
+        try {
+            const saved = localStorage.getItem("favorites");
+            return saved ? JSON.parse(saved) : [];
+        } catch {
+            return [];
+        }
     });
 
+
     useEffect(() => {
-        localStorage.setItem("favorites", JSON.stringify(favorites));
+        try {
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+        } catch {
+            console.error("Erro ao salvar favoritos no localStorage");
+        }
     }, [favorites]);
+
 
     function toggleFavorite(movie: Movie) {
         setFavorites((prev) =>

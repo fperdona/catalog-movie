@@ -25,7 +25,7 @@ export function SearchBar({ onSearch }: SearchBarProps) {
                 onChange={(e) => setQuery(e.target.value)}
                 className={styles.input}
             />
-            <Button type="submit" className={styles.teste}>
+            <Button type="submit">
                 <Icon svg={Search} width={28} height={28} />
             </Button>
         </form>

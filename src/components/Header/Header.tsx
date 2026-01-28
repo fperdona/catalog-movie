@@ -14,14 +14,19 @@ interface HeaderProps {
 export function Header({ theme, onToggleTheme }: HeaderProps) {
     return (
         <header className={styles.header}>
-            <Link to="/" className={styles.logo}>
+            <Link to="/" className={styles.logo} aria-label="Ir para página inicial">
                 <Icon svg={Logo} width={28} height={28} />
             </Link>
-            <Link to="/favoritos" className={styles.link}>
+            <Link to="/favoritos" className={styles.link} aria-label="Ver favoritos">
                 <Icon svg={ListHeart} width={28} height={28} />
             </Link>
-            <Icon svg={theme === "dark" ? SunDim : MoonStars} className={styles.theme} width={28} height={28} onClick={onToggleTheme} />
-
+            <button
+                className={styles.theme}
+                onClick={onToggleTheme}
+                aria-label={theme === "dark" ? "Ativar modo claro" : "Ativar modo escuro"}
+            >
+                <Icon svg={theme === "dark" ? SunDim : MoonStars} width={28} height={28} />
+            </button>
         </header>
     );
 }

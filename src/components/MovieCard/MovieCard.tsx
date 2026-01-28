@@ -25,7 +25,9 @@ export function MovieCard({ movie }: MovieCardProps) {
                     e.preventDefault();
                     toggleFavorite(movie);
                 }}
+                aria-label={favorited ? "Remover dos favoritos" : "Adicionar aos favoritos"}
             >
+
                 <Icon svg={favorited ? HeartFilled : Heart} width={20} height={20} />
             </button>
             <img
