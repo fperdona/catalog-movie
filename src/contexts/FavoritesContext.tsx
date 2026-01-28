@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, useMemo } from "react";
 import type { ReactNode } from "react";
 import type { Movie } from "../types/movie";
 
@@ -30,20 +30,24 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
     }, [favorites]);
 
 
-    function toggleFavorite(movie: Movie) {
+    const toggleFavorite = useCallback((movie: Movie) => {
         setFavorites((prev) =>
             prev.some((f) => f.id === movie.id)
                 ? prev.filter((f) => f.id !== movie.id)
                 : [...prev, movie]
         );
-    }
+    }, []);
 
-    function isFavorite(id: number) {
+    const isFavorite = useCallback((id: number) => {
         return favorites.some((f) => f.id === id);
-    }
+    }, [favorites]);
+
+    const value = useMemo(() => ({
+        favorites, toggleFavorite, isFavorite
+    }), [favorites, toggleFavorite, isFavorite]);
 
     return (
-        <FavoritesContext.Provider value={{ favorites, toggleFavorite, isFavorite }}>
+        <FavoritesContext.Provider value={value}>
             {children}
         </FavoritesContext.Provider>
     );

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import type { Movie } from "../../types/movie";
 import { IMAGE_BASE_URL } from "../../services/api";
@@ -12,7 +13,7 @@ interface MovieCardProps {
     movie: Movie;
 }
 
-export function MovieCard({ movie }: MovieCardProps) {
+export const MovieCard = memo(function MovieCard({ movie }: MovieCardProps) {
     const year = movie.release_date?.split("-")[0] || "N/A";
     const { toggleFavorite, isFavorite } = useFavorites();
     const favorited = isFavorite(movie.id);
@@ -48,4 +49,4 @@ export function MovieCard({ movie }: MovieCardProps) {
             </div>
         </Link>
     );
-}
+});
